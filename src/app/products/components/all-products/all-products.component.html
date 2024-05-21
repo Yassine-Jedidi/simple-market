@@ -8,7 +8,7 @@
   <span *ngIf="loading" class="loading loading-spinner text-info"></span>
   <div class="grid grid-cols-4 gap-10" *ngIf="!loading">
     <ng-container *ngFor="let product of products">
-      <app-product [product]="product"></app-product>
+      <app-product [product]="product" (item)="addToCart($event)"></app-product>
     </ng-container>
   </div>
 </div>

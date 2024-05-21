@@ -9,7 +9,24 @@
     <p>{{ product.description }}</p>
     <div class="card-actions flex items-center justify-between">
       <p class="font-bold text-lg">{{ product.price }} DT</p>
-      <button class="btn btn-primary">Add To Cart</button>
+      <button
+        class="btn btn-primary"
+        *ngIf="!addButton"
+        (click)="addButton = true"
+      >
+        Add To Cart
+      </button>
+      <div *ngIf="addButton" class="flex items-center justify-between">
+        <input
+          type="text"
+          placeholder="Count"
+          class="input input-bordered input-info w-28"
+          [(ngModel)]="amount"
+        />
+        <button class="btn btn-primary absolute ml-16" (click)="addToCart()">
+          Add
+        </button>
+      </div>
     </div>
   </div>
 </div>

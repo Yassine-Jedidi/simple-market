@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/shared/models/Product';
 
 @Component({
@@ -8,4 +8,11 @@ import { Product } from 'src/app/shared/models/Product';
 })
 export class ProductComponent {
   @Input() product!:Product;
+  @Output() item = new EventEmitter();
+  addButton:boolean=false;
+  amount:number= 0;
+
+  addToCart(){
+    this.item.emit({item:this.product,quantity:this.amount});
+  }
 }
