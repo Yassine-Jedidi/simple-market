@@ -1,33 +1,14 @@
-<div class="flex justify-center p-7">
-  <select
-    class="select select-bordered select-info w-full max-w-xs"
-    (change)="filterCategory($event)"
-  >
-    <option value="all">All Categories</option>
-    <option value="{{ category }}" *ngFor="let category of categories">
-      {{ category.charAt(0).toUpperCase() + category.slice(1) }}
-    </option>
-  </select>
-</div>
+<app-select
+  [data]="categories"
+  [title]="'All Categories'"
+  (selectedValue)="filterCategory($event)"
+></app-select>
 
 <div class="flex justify-center">
   <span *ngIf="loading" class="loading loading-spinner text-info"></span>
   <div class="grid grid-cols-4 gap-10" *ngIf="!loading">
-    <div
-      class="card w-80 shadow-lg p-5 transform hover:-translate-y-2 duration-300 hover:shadow-2xl"
-      *ngFor="let product of products"
-    >
-      <figure class="h-72 object-cover rounded-xl">
-        <img src="{{ product.image }}" alt="Product" />
-      </figure>
-      <div class="card-body">
-        <h2 class="card-title">{{ product.title }}</h2>
-        <p>{{ product.description }}</p>
-        <div class="card-actions flex items-center justify-between">
-          <p class="font-bold text-lg">{{ product.price }} DT</p>
-          <button class="btn btn-primary">Add To Cart</button>
-        </div>
-      </div>
-    </div>
+    <ng-container *ngFor="let product of products">
+      <app-product [product]="product"></app-product>
+    </ng-container>
   </div>
 </div>

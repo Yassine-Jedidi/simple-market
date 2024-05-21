@@ -54,10 +54,14 @@ export class AllProductsComponent implements OnInit{
   }
 
   getProductsByCategory(category:string){
+    this.loading=true;
     this.productsService.getProductsByCategory(category).subscribe(products=>{
       this.products=products;
+      this.loading=false;
     })
   }
+
+
 
 
 }

@@ -1,0 +1,15 @@
+<div
+  class="card w-80 shadow-lg p-5 transform hover:-translate-y-2 duration-300 hover:shadow-2xl"
+>
+  <figure class="h-72 object-cover rounded-xl">
+    <img [src]="product.image" alt="Product" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">{{ product.title }}</h2>
+    <p>{{ product.description }}</p>
+    <div class="card-actions flex items-center justify-between">
+      <p class="font-bold text-lg">{{ product.price }} DT</p>
+      <button class="btn btn-primary">Add To Cart</button>
+    </div>
+  </div>
+</div>
