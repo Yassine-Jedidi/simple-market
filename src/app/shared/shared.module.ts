@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectComponent } from './components/select/select.component';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -17,12 +18,14 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     RouterModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   exports:[
     NavbarComponent,
     SelectComponent,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ]
 
 })

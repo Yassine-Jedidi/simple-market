@@ -12,6 +12,7 @@ import { ProductComponent } from './components/product/product.component';
     AllProductsComponent,
     ProductDetailsComponent,
     ProductComponent,
+
   ],
   imports: [
     CommonModule,

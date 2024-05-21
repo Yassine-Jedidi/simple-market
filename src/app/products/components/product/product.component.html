@@ -5,7 +5,9 @@
     <img [src]="product.image" alt="Product" />
   </figure>
   <div class="card-body">
-    <h2 class="card-title">{{ product.title }}</h2>
+    <h2 class="card-title hover:cursor-pointer hover:text-neutral-600">
+      <a routerLink="/products/{{ product.id }}">{{ product.title }}</a>
+    </h2>
     <p>{{ product.description }}</p>
     <div class="card-actions flex items-center justify-between">
       <p class="font-bold text-lg">{{ product.price }} DT</p>
