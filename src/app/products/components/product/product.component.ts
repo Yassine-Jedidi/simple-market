@@ -15,10 +15,6 @@ export class ProductComponent {
   addToCart(){
     this.item.emit({item:this.product,quantity:this.amount});
     this.addButton=false;
-
   }
-
-
-
 
 }

@@ -21,6 +21,14 @@
     </div>
   </div>
   <div>
-    <button class="btn btn-primary block mx-auto w-1/4">Add To Cart</button>
+    <button class="btn btn-primary block mx-auto w-1/4" (click)="addToCart()">
+      Add To Cart
+    </button>
+  </div>
+</div>
+
+<div class="toast fixed z-50" *ngIf="toast">
+  <div class="alert alert-success">
+    <span>Product added to the cart!</span>
   </div>
 </div>
