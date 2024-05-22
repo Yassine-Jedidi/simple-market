@@ -10,13 +10,15 @@ export class ProductComponent {
   @Input() product!:Product;
   @Output() item = new EventEmitter();
   addButton:boolean=false;
-  amount:number= 0;
+  amount:number=1;
 
   addToCart(){
     this.item.emit({item:this.product,quantity:this.amount});
     this.addButton=false;
 
   }
+
+
 
 
 }

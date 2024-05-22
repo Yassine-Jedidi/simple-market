@@ -23,10 +23,10 @@ export class ProductDetailsComponent implements OnInit{
 
   getProductById(){
     this.loading=true;
-    if(this.id>20 || this.id<1 || this.id!=Number){
-      this.router.navigateByUrl('/products')
+    if ( this.id > 20 || this.id < 1) {
+      this.router.navigateByUrl('/products');
     }
-    this.productsService.getProductById(this.id).subscribe(product=>{
+      this.productsService.getProductById(this.id).subscribe(product=>{
       console.log(product)
       this.product= product;
       this.loading=false;
