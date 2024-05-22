@@ -1,14 +1,16 @@
 <div
-  class="card w-80 shadow-lg p-5 transform hover:-translate-y-2 duration-300 hover:shadow-2xl"
+  class="card h-full w-80 shadow-lg p-5 transform hover:-translate-y-2 duration-300 hover:shadow-2xl z-0"
 >
   <figure class="h-72 object-cover rounded-xl">
     <img [src]="product.image" alt="Product" />
   </figure>
-  <div class="card-body">
+  <div class="card-body flex flex-col">
     <h2 class="card-title hover:cursor-pointer hover:text-neutral-600">
       <a routerLink="/products/{{ product.id }}">{{ product.title }}</a>
     </h2>
-    <p>{{ product.description }}</p>
+    <p class="line-clamp-6 text-ellipsis">
+      {{ product.description }}
+    </p>
     <div class="card-actions flex items-center justify-between">
       <p class="font-bold text-lg">{{ product.price }} DT</p>
       <button
@@ -30,10 +32,5 @@
         </button>
       </div>
     </div>
-  </div>
-</div>
-<div class="toast" *ngIf="toast">
-  <div class="alert alert-success">
-    <span>Product added to the cart!</span>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterOutlet } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { Product } from 'src/app/shared/models/Product';
 
@@ -13,7 +13,7 @@ export class ProductDetailsComponent implements OnInit{
   product : Product =new Product();
   loading:boolean=false;
 
-  constructor(private route:ActivatedRoute,private productsService:ProductsService){
+  constructor(private route:ActivatedRoute,private productsService:ProductsService,private router:Router){
     this.id = this.route.snapshot.paramMap.get("id");
     console.log(this.id)
   }
@@ -23,6 +23,9 @@ export class ProductDetailsComponent implements OnInit{
 
   getProductById(){
     this.loading=true;
+    if(this.id>20 || this.id<1 || this.id!=Number){
+      this.router.navigateByUrl('/products')
+    }
     this.productsService.getProductById(this.id).subscribe(product=>{
       console.log(product)
       this.product= product;
@@ -30,6 +33,7 @@ export class ProductDetailsComponent implements OnInit{
     },error=>{
       console.log("Error getting Product ID");
       this.loading=false;
+      this.router.navigateByUrl('/products')
     })
   }
 

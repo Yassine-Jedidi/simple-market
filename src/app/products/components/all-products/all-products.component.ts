@@ -15,6 +15,7 @@ export class AllProductsComponent implements OnInit{
   categories:string[] =[];
   loading:boolean=false;
   cartProducts:any[]=[];
+  toast:boolean=false;
 
   ngOnInit(): void {
     this.getProducts();
@@ -72,12 +73,26 @@ export class AllProductsComponent implements OnInit{
       else{
       this.cartProducts.push(event);
       localStorage.setItem('cart',JSON.stringify(this.cartProducts));
+      this.showToast()
+    setTimeout(() => {
+      this.hideToast();
+    }, 3000);
       }
     }
     else{
       this.cartProducts.push(event);
       localStorage.setItem('cart',JSON.stringify(this.cartProducts));
+      this.showToast()
+    setTimeout(() => {
+      this.hideToast();
+    }, 3000);
     }
+  }
+  showToast(){
+    this.toast=true;
+  }
+  hideToast(){
+    this.toast=false;
   }
 
 
